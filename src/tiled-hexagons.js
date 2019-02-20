@@ -3,19 +3,33 @@ import PropTypes from 'prop-types'
 
 import Hexagon from './hexagon'
 
+const YRATIO = 0.71
+
 export default class TiledHexagons extends Component {
 	constructor(props) {
 		super(props)
 	}
 
 	render() {
-		let { tiles, tileWidths, tileElevations, tileGap } = this.props
+		let { tiles, tileWidths, tileElevations, tileGap, maxHorizontal } = this.props
 		let tileCount = tiles.length
+
+		let singleTileWidth = tileWidths + tileGap
+		let singleTileHeight = 11*(tileWidths+tileElevations)/9 + tileGap
+
+		let columnCount = getColumnCount(tileCount, maxHorizontal)
+
+		let fullWidth = singleTileWidth * (tileCount < maxHorizontal ? tileCount : maxHorizontal)
+		let fullHeight = (singleTileHeight + tileGap) * (columnCount - 1)
+
+		let ranges = getRanges(columnCount, maxHorizontal)
+
 		return (
-			<svg width={(tileWidths + tileGap) * tileCount} height={11*(tileWidths+2*tileElevations)/9}>
+			<svg width={fullWidth} height={fullHeight}>
 				{tiles.map(({fill, shadow, img, onClick}, i) => {
+					let { XMultiplier, YMultiplier } = getMultipliers(i, ranges)
 					return (
-						<svg key={img} x={(tileWidths + tileGap) * i} width={tileWidths} height={11*(tileWidths+2*12)/9}>
+						<svg key={i} x={XMultiplier * singleTileWidth} y={YMultiplier * singleTileHeight} width={singleTileWidth} height={singleTileHeight}>
 							<Hexagon
 								width={tileWidths}
 								elevation={tileElevations}
@@ -35,7 +49,8 @@ TiledHexagons.defaultProps = {
 	tiles: [],
 	tileWidths: Hexagon.defaultProps.width,
 	tileElevations: Hexagon.defaultProps.elevation,
-	tileGap: 4
+	tileGap: 4,
+	maxHorizontal: 5
 }
 
 TiledHexagons.propTypes = {
@@ -47,5 +62,33 @@ TiledHexagons.propTypes = {
 	})),
 	tileWidths: PropTypes.number,
 	tileElevations: PropTypes.number,
-	tileGap: PropTypes.number
+	tileGap: PropTypes.number,
+	maxHorizontal: PropTypes.number
 }
+
+const getRanges = (columnCount, maxHorizontal) => {
+	var ranges = [[0, maxHorizontal - 1]]
+	for(var c = 1; c <= columnCount; c++) {
+		var evenOddModifier = c%2==0 ? 0 : -1
+		ranges[c] = [ranges[c-1][1] + 1, ranges[c-1][1] + maxHorizontal + evenOddModifier]
+	}
+	return ranges
+}
+
+const getColumnCount = (tileCount, maxHorizontal) => {
+	var columnCount = 0
+	var i = 0
+	while(i <= tileCount) {
+		i += (columnCount%2==0) ? maxHorizontal : maxHorizontal - 1
+		columnCount++ 
+	}
+	return columnCount
+}
+
+
+const getMultipliers = (i, ranges) => {
+	var YColumn = ranges.findIndex(range => i >= range[0] && i <= range[1])
+	var XMultiplier = i - ranges[YColumn][0] + (YColumn%2==0 ? 0 : 0.5)
+	var YMultiplier = YRATIO * YColumn
+	return { XMultiplier, YMultiplier }
+} 

@@ -17,18 +17,78 @@ const App = () => {
 			/> */}
 			<TiledHexagons tiles={[
 				{
-					img: rxjsLogo
+					img: rxjsLogo,
+					fill: '#3b3e47',
+					shadow: '#2d2d38'
+				},
+				{
+					img: rxjsLogo,
+					fill: '#76d36b',
+					shadow: '#4baf66'
+				},
+				{
+					img: rxjsLogo,
+					fill: '#80dbf2',
+					shadow: '#5b9bd8'
 				},
 				{
 					img: rxjsLogo
 				},
 				{
+					img: rxjsLogo,
+					fill: '#3b3e47',
+					shadow: '#2d2d38'
+				},
+				{
+					img: rxjsLogo,
+					fill: '#76d36b',
+					shadow: '#4baf66'
+				},
+				{
+					img: rxjsLogo,
+					fill: '#80dbf2',
+					shadow: '#5b9bd8'
+				},
+				{
 					img: rxjsLogo
+				},
+				{
+					img: rxjsLogo,
+					fill: '#3b3e47',
+					shadow: '#2d2d38'
+				},
+				{
+					img: rxjsLogo,
+					fill: '#76d36b',
+					shadow: '#4baf66'
+				},
+				{
+					img: rxjsLogo,
+					fill: '#80dbf2',
+					shadow: '#5b9bd8'
+				},
+				{
+					img: rxjsLogo
+				},
+				{
+					img: rxjsLogo,
+					fill: '#3b3e47',
+					shadow: '#2d2d38'
+				},
+				{
+					img: rxjsLogo,
+					fill: '#76d36b',
+					shadow: '#4baf66'
+				},
+				{
+					img: rxjsLogo,
+					fill: '#80dbf2',
+					shadow: '#5b9bd8'
 				},
 				{
 					img: rxjsLogo
 				}
-			]} />
+			]} maxHorizontal={4} tileGap={6} />
 		</div>
 	)
 }

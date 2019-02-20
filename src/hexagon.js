@@ -45,7 +45,7 @@ export default class Hexagon extends Component {
 		let { width, elevation, img, onClick } = this.props
 		let { thHexagonStyle } = this.state
 		return (
-			<svg viewBox="0 0 90 110" width={width} height={11*(width+2*elevation)/9}>
+			<svg viewBox="0 0 92 110" width={width} height={11*(width+elevation)/9}>
 				<defs>
 					<svg id="th-hexagon">
 						<g transform="translate(1.7381e-7 -197)">
