@@ -9,7 +9,7 @@ const App = () => {
 	return (
 		<div className="app-body">
 			{/* <Hexagon
-				width={200}
+				width={400}
 				elevation={12}
 				img={rxjsLogo}
 				fill="#fbfbfb"
@@ -88,7 +88,7 @@ const App = () => {
 				{
 					img: rxjsLogo
 				}
-			]} maxHorizontal={4} tileGap={6} />
+			]} maxHorizontal={5} tileGap={0} tileElevations={0} tileWidths={150}/>
 		</div>
 	)
 }
