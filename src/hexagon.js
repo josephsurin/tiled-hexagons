@@ -45,16 +45,16 @@ export default class Hexagon extends Component {
 		let { width, elevation, img, onClick } = this.props
 		let { thHexagonStyle } = this.state
 		return (
-			<svg viewBox="0 0 92 110" width={width} height={11*(width+elevation)/9}>
+			<svg viewBox={`0 ${elevation ? '7' : '0'} 86 100`} width={width} height={5*(width+elevation)/4}>
 				<defs>
 					<svg id="th-hexagon">
-						{/* <g transform="translate(1.7381e-7 -197)">
-							<path transform="matrix(.753953 -.68964 -.68698 -.74246 89.898 382.75)" d="m92.226 164.52c-3.6097 3.364-43.362 12.529-48.081 11.085-4.7181-1.4441-32.531-31.289-33.64-36.097-1.1085-4.8081 10.831-43.817 14.441-47.181 3.6097-3.364 43.362-12.529 48.081-11.085 4.7181 1.4441 32.531 31.289 33.64 36.097s-10.831 43.817-14.441 47.181z" />
+						{/* <g transform="translate(-1.8282 -197)">
+							<path transform="matrix(.70949 -.68964 -.65908 -.74246 88.136 382.75)" d="m92.226 164.52c-3.6097 3.364-43.362 12.529-48.081 11.085-4.7181-1.4441-32.531-31.289-33.64-36.097-1.1085-4.8081 10.831-43.817 14.441-47.181 3.6097-3.364 43.362-12.529 48.081-11.085 4.7181 1.4441 32.531 31.289 33.64 36.097s-10.831 43.817-14.441 47.181z"/>
 						</g> */}
 						<g transform="translate(-1.8282 -197)">
 							<path transform="matrix(.73953 -.68964 -.68698 -.74246 89.898 382.75)" d="m92.226 164.52-48.081 11.085-33.64-36.097 14.441-47.181 48.081-11.085 33.64 36.097z" />
 						</g>
-						<image href={img} height="50" width="50" x="20" y="24" />
+						<image href={img} height="50" width="50" x="19" y="24" />
 					</svg>
 				</defs>
 				<use
