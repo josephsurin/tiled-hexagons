@@ -1,43 +1,57 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-
+import assign from 'assign-deep'
 import Hexagon from './hexagon'
 
-const YRATIO =  1 - 0.281
 export default class TiledHexagons extends Component {
 	constructor(props) {
 		super(props)
 	}
 
 	render() {
-		let { tiles, tileWidths, tileElevations, tileGap, maxHorizontal } = this.props
+		let { tiles, tileSideLengths, tileBorderRadii, tileElevations, tileStrokeWidths, tileGap, maxHorizontal, tileStyles, tileTextStyles } = this.props
 		let tileCount = tiles.length
 
-		let singleTileWidth = tileWidths + tileGap
-		let singleTileHeight = 100*(tileWidths + tileElevations)/82 + tileGap
+		let singleTileWidth = Math.sqrt(3) * tileSideLengths
+		let singleTileHeight = 2 * tileSideLengths + tileElevations
 
 		let columnCount = getColumnCount(tileCount, maxHorizontal)
 
-		let fullWidth = singleTileWidth * (tileCount < maxHorizontal ? tileCount : maxHorizontal)
-		let fullHeight = (singleTileHeight + tileElevations) * (YRATIO * (columnCount - 1) + 1)
+		let XConst = singleTileWidth + tileGap
+		let YConst = 3 * tileSideLengths / 2 + tileElevations + tileGap
+
+		let fullWidth = XConst * Math.min(tileCount, maxHorizontal)
+		let fullHeight = (singleTileHeight + tileGap) + ((columnCount - 1) * YConst)
 
 		let ranges = getRanges(columnCount, maxHorizontal)
 
 		return (
 			<svg width={fullWidth} height={fullHeight}>
-				{tiles.map(({fill, shadow, img, onClick}, i) => {
+				{tiles.map(({fill, stroke, shadow, img, text, textStyle, styles, onClick}, i) => {
+
 					let { XMultiplier, YMultiplier } = getMultipliers(i, ranges)
+
+					//deep merge & clone
+					let mergedStyles = assign(mergedStyles, JSON.parse(JSON.stringify(tileStyles)), styles)
+
 					return (
-						<svg key={i} x={XMultiplier * singleTileWidth} y={YMultiplier * (singleTileHeight)} width={singleTileWidth} height="100%">
+						<svg key={i} x={XMultiplier * XConst} y={YMultiplier * YConst} width={singleTileWidth} height={singleTileHeight}>
 							<Hexagon
-								width={tileWidths}
+								sideLength={tileSideLengths}
+								borderRadius={tileBorderRadii}
 								elevation={tileElevations}
 								img={img}
+								text={text}
+								textStyle={Object.assign({}, tileTextStyles, textStyle)}
+								styles={mergedStyles}
 								fill={fill}
+								stroke={stroke}
+								strokeWidth={tileStrokeWidths}
 								shadow={shadow}
 								onClick={onClick}
 							/>
 						</svg>)
+						
 				})}
 			</svg>
 		)
@@ -46,22 +60,46 @@ export default class TiledHexagons extends Component {
 
 TiledHexagons.defaultProps = {
 	tiles: [],
-	tileWidths: Hexagon.defaultProps.width,
+	tileSideLengths: Hexagon.defaultProps.width,
+	tileBorderRadii: Hexagon.defaultProps.borderRadius,
 	tileElevations: Hexagon.defaultProps.elevation,
+	tileStrokeWidths: Hexagon.defaultProps.strokeWidth,
 	tileGap: 4,
+	tileStyles: {
+		normal: {},
+		hover: {},
+		active: {}
+	},
+	tileTextStyles: {},
 	maxHorizontal: 5
 }
 
 TiledHexagons.propTypes = {
 	tiles: PropTypes.arrayOf(PropTypes.shape({
 		fill: PropTypes.string,
+		stroke: PropTypes.string,
 		shadow: PropTypes.string,
 		img: PropTypes.string,
+		text: PropTypes.string,
+		textStyle: PropTypes.object,
+		styles: PropTypes.shape({
+			normal: PropTypes.object,
+			hover: PropTypes.object,
+			active: PropTypes.object
+		}),
 		onClick: PropTypes.func
 	})),
-	tileWidths: PropTypes.number,
+	tileSideLengths: PropTypes.number,
+	tileBorderRadii: PropTypes.number,
 	tileElevations: PropTypes.number,
+	tileStrokeWidths: PropTypes.number,
 	tileGap: PropTypes.number,
+	tileStyles: PropTypes.shape({
+		normal: PropTypes.object,
+		hover: PropTypes.object,
+		active: PropTypes.object
+	}),
+	tileTextStyles: PropTypes.object,
 	maxHorizontal: PropTypes.number
 }
 
@@ -85,8 +123,7 @@ const getColumnCount = (tileCount, maxHorizontal) => {
 }
 
 const getMultipliers = (i, ranges) => {
-	var YColumn = ranges.findIndex(range => i >= range[0] && i <= range[1])
-	var XMultiplier = i - ranges[YColumn][0] + (YColumn%2==0 ? 0 : 0.5)
-	var YMultiplier = YRATIO * YColumn
+	var YMultiplier = ranges.findIndex(range => i >= range[0] && i <= range[1])
+	var XMultiplier = i - ranges[YMultiplier][0] + (YMultiplier%2==0 ? 0 : 0.5)
 	return { XMultiplier, YMultiplier }
 } 

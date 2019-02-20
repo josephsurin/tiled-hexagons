@@ -1,9 +1,6 @@
-import React from 'react'
-import { render } from 'react-dom'
+import Hexagon from './hexagon'
+import TiledHexagons from './tiled-hexagons'
 
-import App from './app.js'
+const exp = { Hexagon, TiledHexagons }
 
-render(
-	<App />,
-	document.getElementById('app')
-)
+export default exp
