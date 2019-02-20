@@ -88,7 +88,7 @@ const App = () => {
 				{
 					img: rxjsLogo
 				}
-			]} maxHorizontal={5} tileGap={0} tileElevations={12} tileWidths={90}/>
+			]} maxHorizontal={5} tileGap={0} tileElevations={12} tileWidths={150}/>
 		</div>
 	)
 }

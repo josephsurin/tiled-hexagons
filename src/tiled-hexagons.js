@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 
 import Hexagon from './hexagon'
 
-const YRATIO = 0.7
-
+const YRATIO =  1 - 0.281
 export default class TiledHexagons extends Component {
 	constructor(props) {
 		super(props)
@@ -15,7 +14,7 @@ export default class TiledHexagons extends Component {
 		let tileCount = tiles.length
 
 		let singleTileWidth = tileWidths + tileGap
-		let singleTileHeight = 11*tileWidths/9 + tileGap + tileElevations
+		let singleTileHeight = 100*(tileWidths + tileElevations)/82 + tileGap
 
 		let columnCount = getColumnCount(tileCount, maxHorizontal)
 
@@ -29,7 +28,7 @@ export default class TiledHexagons extends Component {
 				{tiles.map(({fill, shadow, img, onClick}, i) => {
 					let { XMultiplier, YMultiplier } = getMultipliers(i, ranges)
 					return (
-						<svg key={i} x={XMultiplier * singleTileWidth} y={YMultiplier * (singleTileHeight + tileElevations)} width={singleTileWidth} height={singleTileHeight + tileElevations}>
+						<svg key={i} x={XMultiplier * singleTileWidth} y={YMultiplier * (singleTileHeight)} width={singleTileWidth} height="100%">
 							<Hexagon
 								width={tileWidths}
 								elevation={tileElevations}
