@@ -4,6 +4,12 @@
 
 `tiled-hexagons` is a simple React button component set to help you render one or more multiple tessellated hexagon buttons. 
 
+
+[![NPM](https://nodei.co/npm/tiled-hexagons.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/tiled-hexagons/)
+
+[![NPMDT](https://img.shields.io/npm/dt/tiled-hexagons.svg?style=for-the-badge)](https://www.npmjs.com/package/tiled-hexagons)
+
+
 ## Live Demo
 Check out the [live demo](https://josephsurin.github.io/tiled-hexagons) for usage examples!
 
