@@ -36,6 +36,7 @@
   },
   "scripts": {
     "build": "babel src --out-dir build --source-maps true",
+    "build-watch": "nodemon --watch ./src --exec \"npm run build\"",
     "build-examples": "webpack --config ./examples/webpack.config.js",
     "build-examples-prod": "webpack --config ./examples/webpack.config.prod.js"
   },

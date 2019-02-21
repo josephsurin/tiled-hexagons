@@ -11,7 +11,7 @@ const elevationStyleNormal = (elevation, shadow) => {
 const elevationStyleHover = (elevation, shadow) => {
 	return {
 		cursor: 'pointer',
-		filter: `drop-shadow(${shadow} 0 ${elevation/2}px 0)`,
+		// filter: `drop-shadow(${shadow} 0 ${elevation/2}px 0)`,
 		transform: `translateY(${elevation/2}px)`
 	}
 }
@@ -20,7 +20,7 @@ const elevationStyleActive = (elevation, shadow) => {
 	return {
 		cursor: 'pointer',
 		transition: 'all 0.1s ease',
-		filter: `drop-shadow(${shadow} 0 1px 0)`,
+		// filter: `drop-shadow(${shadow} 0 1px 0)`,
 		transform: `translateY(${elevation}px)`
 	}
 }
@@ -29,23 +29,25 @@ export default class Hexagon extends Component {
 	constructor(props) {
 		super(props)
 		let { elevation, stroke, strokeWidth, shadow, styles: { normal, hover, active } } = this.props
-		console.log(elevation)
+		
 		var thHexagonStyleBase = {
 			userSelect: 'none',
 			stroke,
 			strokeWidth: `${strokeWidth}px`, 
 			transition: 'all 0.2s ease',
 		}
-		this.thHexagonStyleNormal = Object.assign({}, thHexagonStyleBase, elevation ? elevationStyleNormal(elevation, shadow) : {}, normal)
+
+		this.thHexagonStyleNormal = Object.assign({}, thHexagonStyleBase, normal)
 		this.thHexagonStyleHover = Object.assign({}, thHexagonStyleBase, elevation ? elevationStyleHover(elevation, shadow) : {}, hover)
 		this.thHexagonStyleActive = Object.assign({}, thHexagonStyleBase, elevation ? elevationStyleActive(elevation,  shadow) : {}, active)
-		console.log(this.thHexagonStyleHover)
+		
 		this.state = {
 			thHexagonStyle: this.thHexagonStyleNormal
 		}
 	}
+
 	render() {
-		let { sideLength, borderRadius, elevation, img, text, textStyle, href, target, onClick, fill } = this.props
+		let { sideLength, borderRadius, elevation, shadow, img, text, textStyle, href, target, onClick, fill } = this.props
 		let { thHexagonStyle } = this.state
 
 		let width = Math.sqrt(3) * sideLength
@@ -69,6 +71,7 @@ export default class Hexagon extends Component {
 				viewBox={`0 0 ${width} ${height}`}
 				width={width}
 				height={height} >
+				<svg y={elevation}><path fill={shadow} d={generateHexSVG(sideLength, borderRadius)} /></svg>
 				<g
 					style={thHexagonStyle}
 					onMouseOver={() => this.setState({ thHexagonStyle: this.thHexagonStyleHover })}
