@@ -54,8 +54,7 @@ export default class Hexagon extends Component {
 		let height = 2 * sideLength + elevation
 
 		let fontSizeOffset = textStyle.fontSize ? 0.3 * parseInt(textStyle.fontSize) : 0
-		console.log(fontSizeOffset)
-
+		
 		const hexagon = (
 			<React.Fragment>
 				<path fill={fill} d={generateHexSVG(sideLength, borderRadius)} />

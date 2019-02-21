@@ -104,7 +104,7 @@ const example3 = <TiledHexagons
   tileGap={4}
   tileBorderRadii={9}
   maxHorizontal={3}
-  tileTextStyles={{ fontFamily: 'Source Sans Pro', fontSize: '68px', fill: '#7cebff' }}
+  tileTextStyles={{ fontFamily: 'Source Sans Pro', fontSize: '64px', fill: '#7cebff' }}
   tiles={[
     { text: 'あ',
       textStyle: {
@@ -127,7 +127,7 @@ const example3 = <TiledHexagons
     { text: 'E',
       onClick: () => console.log('clicked!')
     },
-    { text: 'F' },
+    { text: '😼' },
     { text: 'G' }
   ]} />
 
@@ -164,7 +164,7 @@ const code3 =
     { text: 'E',
       onClick: () => console.log('clicked!')
     },
-    { text: 'F' },
+    { text: '😼' },
     { text: 'G' }
   ]}
 />`
@@ -248,7 +248,7 @@ const icons = [nodejs, react, redux, reactivex, sass, electron, graphql, mongodb
 const example5 = <TiledHexagons
   maxHorizontal={5}
   tileSideLengths={60}
-  tileElevations={20}
+  tileElevations={16}
   tileGap={7}
   tileBorderRadii={9}
   tiles={icons.map(img => {
@@ -261,6 +261,7 @@ const icons = ['nodejs', 'react', 'redux', 'reactivex', 'sass', 'electron', 'gra
 <TiledHexagons
   maxHorizontal={5}
   tileSideLengths={60}
+  tileElevations={16}
   tileGap={7}
   tileBorderRadii={9}
   tiles={icons.map(icon => {
@@ -270,10 +271,116 @@ const icons = ['nodejs', 'react', 'redux', 'reactivex', 'sass', 'electron', 'gra
 
 //#endregion
 
+//#region example6
+
+const title6 = 'Example #6 - colourful hexgrid'
+
+const subtitle6 =  'Click a tile to randomise the colours! This one renders best on Chrome!'
+
+const ColorScheme = require('color-scheme')
+const shuffle = require('shuffle-array')
+const genColours = () => {
+  var cScheme = new ColorScheme()
+  cScheme.from_hue(Math.round(Math.random() * 360))
+    .scheme('analogic')
+    .variation('soft')
+    .distance(0.4)
+  return shuffle(cScheme.colors())
+}
+
+const darken = (hexString, amount) => {
+  return hexString
+    .match(/.{1,2}/g)
+    .map(hex => (
+      Math.round((1 - amount/100) * parseInt(hex, 16))))
+    .map(hex => hex.toString(16))
+    .join('')
+}
+
+class Example6 extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      colours: genColours()
+    }
+  }
+
+  render() {
+    let { colours } = this.state
+    return <TiledHexagons
+      maxHorizontal={5}
+      tileBorderRadii={0}
+      tileGap={0}
+      tileSideLengths={60}
+      tiles={colours. map(colour => {
+        return {
+          fill: '#'+colour,
+          shadow: '#'+darken(colour, 25),
+          onClick: () => this.setState({
+            colours: genColours()
+          })
+        }
+      })}
+    />
+  }
+}
+
+const example6 = <Example6 />
+
+const code6 = `const ColorScheme = require('color-scheme')
+const shuffle = require('shuffle-array')
+const genColours = () => {
+  var cScheme = new ColorScheme()
+  cScheme.from_hue(Math.round(Math.random() * 360))
+    .scheme('analogic')
+    .variation('soft')
+    .distance(0.4)
+  return shuffle(cScheme.colors())
+}
+
+const darken = (hexString, amount) => {
+  return hexString
+    .match(/.{1,2}/g)
+    .map(hex => (
+      Math.round((1 - amount/100) * parseInt(hex, 16))))
+    .map(hex => hex.toString(16))
+    .join('')
+}
+
+class Example6 extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      colours: genColours()
+    }
+  }
+
+  render() {
+    let { colours } = this.state
+    return <TiledHexagons
+      maxHorizontal={5}
+      tileBorderRadii={0}
+      tileGap={0}
+      tileSideLengths={60}
+      tiles={colours. map(colour => {
+        return {
+          fill: '#'+colour,
+          shadow: '#'+darken(colour, 25),
+          onClick: () => this.setState({
+            colours: genColours()
+          })
+        }
+      })}
+    />
+  }
+}`
+//#endregion
+
 export default [
   { title: title1, example: example1, code: code1 },
   { title: title2, example: example2, code: code2 },
   { title: title3, example: example3, code: code3 },
   { title: title4, example: example4, code: code4 },
-  { title: title5, example: example5, code: code5 }
+  { title: title5, example: example5, code: code5 },
+  { title: title6, subtitle: subtitle6, example: example6, code: code6 }
 ]

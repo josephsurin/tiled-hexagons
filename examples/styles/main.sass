@@ -6,16 +6,14 @@ body, html
 	padding: 0
 	background-color: $grey
 
-p code, pre code
-	background-color: lighten($light-grey, 8%)
-	color: $dark-grey
-	padding: 2px
-	border-radius: 4px
-
 .codeblock
-	position: relative
-	code
-		background-color: transparent
+	background-color: darken($grey, 2%)
+	box-shadow: 1px 1px 15px 1px transparentize($black, 0.7)
+	padding: 8px 24px !important
+	border-radius: 10px
+	font-size: 15px
+	margin: 24px -8px
+	
 
 .app-container
 	max-width: 600px
@@ -25,10 +23,14 @@ p code, pre code
 	color: darken($light-grey, 12%)
 	font-family: 'Lato'
 	font-size: 16px
-	h1
+	h1, h2
 		font-family: 'Source Sans Pro'
 		font-weight: 900
+	h1
 		font-size: 48px
+	a
+		outline: none
+		color: $light-blue
 	.github-btn
 		position: fixed
 		right: 12px
@@ -76,6 +78,8 @@ p code, pre code
 				+break-medium
 					width: 95%
 					overflow-x: auto
+	.more
+		margin-top: 100px
 
 
 
@@ -100,3 +104,7 @@ p code, pre code
 		align-self: baseline
 	.example-code
 		overflow-x: auto
+
+.example-content-6
+	margin-left: -280px
+	padding: 0 40px
