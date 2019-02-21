@@ -12,7 +12,7 @@ import graphql from './assets/graphql.svg'
 import mongodb from './assets/mongodb.svg'
 import arch from './assets/arch.svg'
 
-import { Hexagon, TiledHexagons } from '../build'
+import { Hexagon, TiledHexagons } from '../dist'
 
 //#region example1
 const title1 = 'Example #1 - simple button'

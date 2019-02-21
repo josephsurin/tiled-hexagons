@@ -5,9 +5,6 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const prod = {
 	devtool: 'none',
-
-	watch: false,
-
 	plugins: [
 		new webpack.DefinePlugin({
 			'process.env': {
@@ -15,10 +12,15 @@ const prod = {
 			}
 		})
 	],
-
 	optimization: {
-		minimizer: [new UglifyJSPlugin()]
-	}
+		minimizer: [new UglifyJSPlugin({
+			uglifyOptions: {
+				warnings: false,
+				mangle: true
+			},
+			extractComments: 'all'
+		})]
+	},
 }
 
 module.exports = merge([common, prod])

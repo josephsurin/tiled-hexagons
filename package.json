@@ -38,11 +38,10 @@
     "webpack-merge": "^4.2.1"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "build-prod": "webpack --config webpack.config.prod.js",
+    "build": "babel src --out-dir dist",
     "build-examples": "webpack --config ./examples/webpack.config.js",
     "build-examples-prod": "webpack --config ./examples/webpack.config.prod.js",
-    "prepublish": "rimraf ./dist && npm run build-prod"
+    "prepublish": "rimraf ./dist && npm run build"
   },
   "author": "Joseph Surin <joseph.surin@gmail.com>",
   "repository": {

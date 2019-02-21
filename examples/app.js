@@ -2,7 +2,7 @@ import React from 'react'
 import prism from 'prismjs'
 import { Element, scroller } from 'react-scroll'
 
-import { Hexagon, TiledHexagons } from '../build'
+import { Hexagon, TiledHexagons } from '../dist'
 
 import reactLogo from './assets/react.svg'
 
