@@ -52,8 +52,7 @@ export default class TiledHexagons extends Component {
 								target={target}
 								onClick={onClick}
 							/>
-						</svg>)
-						
+						</svg>)	
 				})}
 			</svg>
 		)

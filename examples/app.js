@@ -1,7 +1,8 @@
 import React from 'react'
 import prism from 'prismjs'
+import { Element, scroller } from 'react-scroll'
 
-import { Hexagon, TiledHexagons } from '../build'
+import { Hexagon } from '../build'
 
 import reactLogo from './assets/react.svg'
 
@@ -28,8 +29,6 @@ const App = () => {
 							img={reactLogo}
 							sideLength={80}
 							borderRadius={12}
-							fill="#fafafa"
-							shadow="#e2e2e2" 
 							href="https://reactjs.org/" />
 						<h1 className="title-text">
 							<div className="react-title">React</div>
@@ -47,12 +46,16 @@ const App = () => {
 								fill="#7cebff"
 								shadow="#64c5d6"
 								text="arrow-down"
-								textStyle={{ fontFamily: 'Font Awesome Solid', fontSize: '36px', fill: 'white' }}/>
+								textStyle={{ fontFamily: 'Font Awesome Solid', fontSize: '36px', fill: 'white' }}
+								onClick={() => {
+									scroller.scrollTo('examples', { duration: 600, smooth: true })
+								}} />
 						</center>
 					</div>
 				</div>
 			</div>
 
+			<Element name="examples" />
 			{examples.map((example, i) => (
 				<div key={example.title} style={{ marginTop: '100px' }} className={`example-wrapper example-wrapper-${i+1}`}>
 					<h1 className={`example-title example-title-${i+1}`}>

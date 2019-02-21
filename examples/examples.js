@@ -2,14 +2,23 @@
 
 import React, { Component } from 'react'
 
-import reactLogo from './assets/react.svg'
+import nodejs from './assets/nodejs.svg'
+import react from './assets/react.svg'
+import redux from './assets/redux.svg'
+import reactivex from './assets/reactivex.svg'
+import sass from './assets/sass.svg'
+import electron from './assets/electron.svg'
+import graphql from './assets/graphql.svg'
+import mongodb from './assets/mongodb.svg'
+import arch from './assets/arch.svg'
+
 import { Hexagon, TiledHexagons } from '../build'
 
 //#region example1
 const title1 = 'Example #1 - simple button'
 
 const example1 = <Hexagon
-  img={reactLogo}
+  img={react}
   sideLength={80}
   borderRadius={12}
   fill="#fafafa"
@@ -17,7 +26,7 @@ const example1 = <Hexagon
   href="https://reactjs.org/" />
 
 const code1 = `<Hexagon
-  img={'assets/reactLogo.svg'}
+  img={'assets/react.svg'}
   sideLength={80}
   borderRadius={12}
   fill="#fafafa"
@@ -65,7 +74,7 @@ class Example2 extends Component {
   constructor(props) {
     super(props)
     this.state = {
-    count: 0
+      count: 0
     }
   }
 
@@ -109,7 +118,7 @@ const example3 = <TiledHexagons
       fill: '#7cebff',
       shadow: '#64c5d6'
     },
-    { img: reactLogo },
+    { img: react },
     { text: 'angry',
       textStyle: {
         fontFamily: 'Font Awesome Solid'
@@ -146,6 +155,7 @@ const code3 =
       fill: '#7cebff',
       shadow: '#64c5d6'
     },
+    { img: 'assets/react.svg' }
     { text: 'angry',
       textStyle: {
         fontFamily: 'Font Awesome Solid'
@@ -227,7 +237,36 @@ const shareURL = encodeURIComponent('https://github.com/josephsurin/tiled-hexago
       href: \`https://twitter.com/intent/tweet?url=\${shareURL}}\`
     }
   ]}
-  />`
+/>`
+
+//#endregion
+
+//#region example5
+const title5 = 'Example #5 - awesome technologies'
+
+const icons = [nodejs, react, redux, reactivex, sass, electron, graphql, mongodb, arch]
+const example5 = <TiledHexagons
+  maxHorizontal={5}
+  tileSideLengths={60}
+  tileElevations={20}
+  tileGap={7}
+  tileBorderRadii={9}
+  tiles={icons.map(img => {
+    return { img }
+  })}
+/>
+
+const code5 = `
+const icons = ['nodejs', 'react', 'redux', 'reactivex', 'sass', 'electron', 'graphql', 'mongodb', 'arch']
+<TiledHexagons
+  maxHorizontal={5}
+  tileSideLengths={60}
+  tileGap={7}
+  tileBorderRadii={9}
+  tiles={icons.map(icon => {
+    return { img: \`assets/\${icon}.svg\` }
+  })}
+/>`
 
 //#endregion
 
@@ -235,5 +274,6 @@ export default [
   { title: title1, example: example1, code: code1 },
   { title: title2, example: example2, code: code2 },
   { title: title3, example: example3, code: code3 },
-  { title: title4, example: example4, code: code4 }
+  { title: title4, example: example4, code: code4 },
+  { title: title5, example: example5, code: code5 }
 ]

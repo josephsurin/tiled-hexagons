@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-require('./main.sass')
+require('./styles/main.sass')
 
 import App from './app'
 

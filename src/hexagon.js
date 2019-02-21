@@ -28,11 +28,10 @@ const elevationStyleActive = (elevation, shadow) => {
 export default class Hexagon extends Component {
 	constructor(props) {
 		super(props)
-		let { elevation, fill, stroke, strokeWidth, shadow, styles: { normal, hover, active } } = this.props
-
+		let { elevation, stroke, strokeWidth, shadow, styles: { normal, hover, active } } = this.props
+		console.log(elevation)
 		var thHexagonStyleBase = {
 			userSelect: 'none',
-			fill,
 			stroke,
 			strokeWidth: `${strokeWidth}px`, 
 			transition: 'all 0.2s ease',
@@ -40,13 +39,13 @@ export default class Hexagon extends Component {
 		this.thHexagonStyleNormal = Object.assign({}, thHexagonStyleBase, elevation ? elevationStyleNormal(elevation, shadow) : {}, normal)
 		this.thHexagonStyleHover = Object.assign({}, thHexagonStyleBase, elevation ? elevationStyleHover(elevation, shadow) : {}, hover)
 		this.thHexagonStyleActive = Object.assign({}, thHexagonStyleBase, elevation ? elevationStyleActive(elevation,  shadow) : {}, active)
-
+		console.log(this.thHexagonStyleHover)
 		this.state = {
 			thHexagonStyle: this.thHexagonStyleNormal
 		}
 	}
 	render() {
-		let { sideLength, borderRadius, elevation, img, text, textStyle, href, target, onClick } = this.props
+		let { sideLength, borderRadius, elevation, img, text, textStyle, href, target, onClick, fill } = this.props
 		let { thHexagonStyle } = this.state
 
 		let width = Math.sqrt(3) * sideLength
@@ -56,14 +55,15 @@ export default class Hexagon extends Component {
 
 		const hexagon = (
 			<React.Fragment>
-				<path d={generateHexSVG(sideLength, borderRadius)} />
-				<image href={img} width={0.7 * width} height={0.7 * height} x={0.15 * width} y={0.14 * height} />
+				<path fill={fill} d={generateHexSVG(sideLength, borderRadius)} />
+				<image href={img} width={0.7 * width} height={0.7 * height} x={0.15 * width} y={0.12 * height} />
 				<text y={sideLength + fontSizeOffset} fill="#bbb" strokeWidth="0" style={textStyle}>
 					<tspan x={width/2} alignmentBaseline="middle" textAnchor="middle">
 						{text}
 					</tspan>
 				</text>
 			</React.Fragment>)
+
 		return (
 			<svg
 				viewBox={`0 0 ${width} ${height}`}
