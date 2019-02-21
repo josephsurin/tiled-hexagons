@@ -1,6 +1,6 @@
 {
   "name": "tiled-hexagons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple React single or tessellated 2D/3D hexagon buttons",
   "main": "./dist/index.js",
   "dependencies": {
