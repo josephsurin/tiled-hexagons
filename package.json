@@ -3,17 +3,19 @@
   "version": "1.0.0",
   "description": "Simple React single or tessellated 2D/3D hexagon buttons",
   "main": "./dist/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "assign-deep": "^1.0.0"
+  },
   "peerDependencies": {
     "react": "^16.8.2",
-    "react-dom": "^16.8.2"
+    "react-dom": "^16.8.2",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
-    "assign-deep": "^1.0.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-prismjs": "^1.0.2",
     "babel-polyfill": "^6.26.0",
@@ -25,7 +27,6 @@
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.11.0",
     "prismjs": "^1.15.0",
-    "prop-types": "^15.7.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-scroll": "^1.7.11",

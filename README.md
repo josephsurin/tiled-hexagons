@@ -1,6 +1,6 @@
 # Tiled Hexagons
 
-<img src="./hex.svg" width="180" align="right" />
+<img alt=" " src="./hex.svg" width="180" align="right" />
 
 `tiled-hexagons` is a simple React button component set to help you render one or more multiple tessellated hexagon buttons. 
 
