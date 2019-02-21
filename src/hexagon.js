@@ -2,25 +2,17 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { generateHexSVG } from './generateHexSVG'
 
-const elevationStyleNormal = (elevation, shadow) => {
-	return {
-		filter: `drop-shadow(${shadow} 0 ${elevation}px 0)`,
-	}
-}
-
-const elevationStyleHover = (elevation, shadow) => {
+const elevationStyleHover = (elevation) => {
 	return {
 		cursor: 'pointer',
-		// filter: `drop-shadow(${shadow} 0 ${elevation/2}px 0)`,
 		transform: `translateY(${elevation/2}px)`
 	}
 }
 
-const elevationStyleActive = (elevation, shadow) => {
+const elevationStyleActive = (elevation) => {
 	return {
 		cursor: 'pointer',
 		transition: 'all 0.1s ease',
-		// filter: `drop-shadow(${shadow} 0 1px 0)`,
 		transform: `translateY(${elevation}px)`
 	}
 }
@@ -28,7 +20,7 @@ const elevationStyleActive = (elevation, shadow) => {
 export default class Hexagon extends Component {
 	constructor(props) {
 		super(props)
-		let { elevation, stroke, strokeWidth, shadow, styles: { normal, hover, active } } = this.props
+		let { elevation, stroke, strokeWidth, styles: { normal, hover, active } } = this.props
 		
 		var thHexagonStyleBase = {
 			userSelect: 'none',
@@ -38,8 +30,8 @@ export default class Hexagon extends Component {
 		}
 
 		this.thHexagonStyleNormal = Object.assign({}, thHexagonStyleBase, normal)
-		this.thHexagonStyleHover = Object.assign({}, thHexagonStyleBase, elevation ? elevationStyleHover(elevation, shadow) : {}, hover)
-		this.thHexagonStyleActive = Object.assign({}, thHexagonStyleBase, elevation ? elevationStyleActive(elevation,  shadow) : {}, active)
+		this.thHexagonStyleHover = Object.assign({}, thHexagonStyleBase, elevation ? elevationStyleHover(elevation) : {}, hover)
+		this.thHexagonStyleActive = Object.assign({}, thHexagonStyleBase, elevation ? elevationStyleActive(elevation) : {}, active)
 		
 		this.state = {
 			thHexagonStyle: this.thHexagonStyleNormal
