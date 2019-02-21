@@ -1,6 +1,7 @@
 # Tiled Hexagons
 
 <img src="./reacthex.svg" width="180" align="right" />
+
 `tiled-hexagons` is a simple React button component set to help you render one or more multiple tessellated hexagon buttons. 
 
 ## Live Demo
@@ -93,8 +94,11 @@ For more usage examples check out the [live demo](https://josephsurin.github.io/
 
 ⚠️ currently experimental and may not work as intended
 
+
 `tile data objects`
+
 Not all properties of `<Hexagon/>` are to be placed into a `tile data object` to be used in `<TiledHexagons/>`. The properties that DO carry over and should be placed into a `tile data object` are: `fill` `stroke` `shadow` `img` `text` `textStyle` `styles` `href` `target` `onClick`.
+
 `tileStyles` and `tileTextStyles` apply a general styling to all hexagons, however, they can be overwritten by individual hexagons using `textStyle` and `styles`.
 
 ## Custom Styling
