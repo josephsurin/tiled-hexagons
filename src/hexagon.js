@@ -31,6 +31,7 @@ export default class Hexagon extends Component {
 		let { elevation, fill, stroke, strokeWidth, shadow, styles: { normal, hover, active } } = this.props
 
 		var thHexagonStyleBase = {
+			userSelect: 'none',
 			fill,
 			stroke,
 			strokeWidth: `${strokeWidth}px`, 
@@ -45,29 +46,38 @@ export default class Hexagon extends Component {
 		}
 	}
 	render() {
-		let { sideLength, borderRadius, elevation, img, text, textStyle, onClick } = this.props
+		let { sideLength, borderRadius, elevation, img, text, textStyle, href, target,	onClick } = this.props
 		let { thHexagonStyle } = this.state
 
 		let width = Math.sqrt(3) * sideLength
 		let height = 2 * sideLength + elevation
+
+		let fontSizeOffset = textStyle.fontSize ? 0.4 * parseInt(textStyle.fontSize) : 0
+
+		const hexagon = (
+			<React.Fragment>
+				<path d={generateHexSVG(sideLength, borderRadius)} />
+				<image href={img} width={0.7 * width} height={0.7 * height} x={0.15 * width} y={0.14 * height} />
+				<text y={sideLength + fontSizeOffset} fill="#bbb" strokeWidth="0" style={textStyle}>
+					<tspan x={width/2} alignmentBaseline="middle" textAnchor="middle">
+						{text}
+					</tspan>
+				</text>
+			</React.Fragment>)
 		return (
 			<svg
 				viewBox={`0 0 ${width} ${height}`}
 				width={width}
-				height={height}
-				style={thHexagonStyle}
-				onMouseOver={() => this.setState({ thHexagonStyle: this.thHexagonStyleHover })}
-				onMouseLeave={() => this.setState({ thHexagonStyle: this.thHexagonStyleNormal })}
-				onMouseDown={() => this.setState({ thHexagonStyle: this.thHexagonStyleActive })}
-				onMouseUp={() => this.setState({ thHexagonStyle: this.thHexagonStyleHover })}
-				onClick={onClick} >
-				<path d={generateHexSVG(sideLength, borderRadius)} />
-				<image href={img} width={width/2} height={height/2} x={width/4} y={height/4} />
-				<text y={1.1 * sideLength} fill="#bbb" strokeWidth="0" style={textStyle}>
-					<tspan x={width/2} textAnchor="middle">
-						{text}
-					</tspan>
-				</text>
+				height={height} >
+				<g
+					style={thHexagonStyle}
+					onMouseOver={() => this.setState({ thHexagonStyle: this.thHexagonStyleHover })}
+					onMouseLeave={() => this.setState({ thHexagonStyle: this.thHexagonStyleNormal })}
+					onMouseDown={() => this.setState({ thHexagonStyle: this.thHexagonStyleActive })}
+					onMouseUp={() => this.setState({ thHexagonStyle: this.thHexagonStyleHover })}
+					onClick={onClick}>
+					{!href ? hexagon : <a href={href} target={target || '_blank'}>{hexagon}</a>}
+				</g>
 			</svg>
 		)
 	}
@@ -75,12 +85,12 @@ export default class Hexagon extends Component {
 
 Hexagon.defaultProps = {
 	sideLength: 100,
-	borderRadius: 0,
+	borderRadius: 16,
 	fill: 'white',
 	stroke: '#bbb',
 	strokeWidth: 0,
 	elevation: 12,
-	shadow: 'rgba(0,0,0,0.1)',
+	shadow: '#e2e2e2',
 	img: '',
 	text: '',
 	textStyle: {},
@@ -89,6 +99,8 @@ Hexagon.defaultProps = {
 		hover: {},
 		active: {}
 	},
+	href: null,
+	target: null,
 	onClick: () => {}
 }
 
@@ -108,5 +120,7 @@ Hexagon.propTypes = {
 		hover: PropTypes.object,
 		active: PropTypes.object
 	}),
+	href: PropTypes.string,
+	target: PropTypes.string,
 	onClick: PropTypes.func
 }

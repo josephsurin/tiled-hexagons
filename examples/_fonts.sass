@@ -1,0 +1,54 @@
+@mixin font-face($name, $src, $weight, $style) 
+	@font-face
+		font-family: quote($name)
+		src: url($src)
+		font-weight: $weight
+		font-style: $style
+
+
+@include font-face(Lato, './fonts/Lato-LightItalic.woff2', 300, italic)
+@include font-face(Lato, './fonts/Lato-Regular.woff2', 400, normal)
+@include font-face("Material Icons", './fonts/Material-Icons.woff2', 400, normal)
+@include font-face("Source Sans Pro", './fonts/SourceSansPro-Bold.woff2', 700, normal)
+@include font-face("Source Sans Pro", './fonts/SourceSansPro-Black.woff2', 900, normal)
+@include font-face("Font Awesome Brands", './fonts/Font-Awesome-5-Brands-Regular-400.otf', 400, normal)
+@include font-face("Font Awesome Solid", './fonts/Font-Awesome-5-Free-Solid-900.otf', 900, normal)
+@include font-face(Merriweather, './fonts/Merriweather-Light.ttf', 300, normal)
+@include font-face(Merriweather, './fonts/Merriweather-lightItalic.ttf', 300, italic)
+
+=icon-font-mixin
+	font-weight: normal
+	font-style: normal
+	font-size: 24px
+	line-height: 1
+	letter-spacing: normal
+	text-transform: none
+	display: inline-block
+	white-space: nowrap
+	word-wrap: normal
+	direction: ltr
+	-webkit-font-feature-settings: 'liga'
+	font-feature-settings: 'liga'
+	-webkit-font-smoothing: antialiased
+	font-smoothing: antialiased
+
+.material-icons
+	font-family: 'Material Icons'
+	+icon-font-mixin
+
+=material-icons
+	.material-icons
+
+.fa-brands
+	font-family: 'Font Awesome Brands'
+	+icon-font-mixin
+
+=fa-brands
+	.fa-brands
+
+.fa-solid
+	font-family: 'Font Awesome Solid'
+	+icon-font-mixin
+
+=fa-solid
+	.fa-solid

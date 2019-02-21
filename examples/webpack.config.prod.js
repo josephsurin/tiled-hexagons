@@ -13,9 +13,12 @@ const prod = {
 			'process.env': {
 				'NODE_ENV': JSON.stringify('production')
 			}
-		}),
-		new UglifyJSPlugin()
-	]
+		})
+	],
+
+	optimization: {
+		minimizer: [new UglifyJSPlugin()]
+	}
 }
 
 module.exports = merge([common, prod])

@@ -27,7 +27,7 @@ export default class TiledHexagons extends Component {
 
 		return (
 			<svg width={fullWidth} height={fullHeight}>
-				{tiles.map(({fill, stroke, shadow, img, text, textStyle, styles, onClick}, i) => {
+				{tiles.map(({fill, stroke, shadow, img, text, textStyle, styles, href, target, onClick}, i) => {
 
 					let { XMultiplier, YMultiplier } = getMultipliers(i, ranges)
 
@@ -48,6 +48,8 @@ export default class TiledHexagons extends Component {
 								stroke={stroke}
 								strokeWidth={tileStrokeWidths}
 								shadow={shadow}
+								href={href}
+								target={target}
 								onClick={onClick}
 							/>
 						</svg>)
@@ -87,6 +89,8 @@ TiledHexagons.propTypes = {
 			hover: PropTypes.object,
 			active: PropTypes.object
 		}),
+		href: PropTypes.string,
+		target: PropTypes.string,
 		onClick: PropTypes.func
 	})),
 	tileSideLengths: PropTypes.number,

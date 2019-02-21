@@ -1,5 +1,10 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+var extractPlugin = new ExtractTextPlugin({
+	filename: 'main.css'
+})
 
 module.exports = {
 	devtool: 'source-map',
@@ -21,6 +26,12 @@ module.exports = {
 			}
 		},
 		{
+			test: /\.(sa|c)ss$/,
+			use: extractPlugin.extract({
+				use: ['css-loader', 'sass-loader']
+			})
+		},
+		{
 			test: /\.(png|jpe?g|gif|svg|eot|svg|otf|ttf|woff|woff2)$/,
 			loader: 'file-loader',
 			options: {
@@ -34,6 +45,7 @@ module.exports = {
 		]
 	},
 	plugins: [
+		extractPlugin,
 		new HtmlWebpackPlugin({
 			template: 'examples/index.html'
 		})
