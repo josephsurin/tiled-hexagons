@@ -20,7 +20,7 @@ export default class TiledHexagons extends Component {
 		let XConst = singleTileWidth + tileGap
 		let YConst = 3 * tileSideLengths / 2 + tileElevations + tileGap
 
-		let fullWidth = XConst * Math.min(tileCount, maxHorizontal)
+		let fullWidth = XConst * (maxHorizontal == 1 ? 1.5 : Math.min(tileCount, maxHorizontal))
 		let fullHeight = (singleTileHeight + tileGap) + ((columnCount - 1) * YConst)
 
 		let ranges = getRanges(columnCount, maxHorizontal)
@@ -108,6 +108,11 @@ TiledHexagons.propTypes = {
 }
 
 const getRanges = (columnCount, maxHorizontal) => {
+	if(maxHorizontal == 1) {
+		return Array(columnCount).fill(0).map((_, i) => {
+			return [i, i]
+		})
+	}
 	var ranges = [[0, maxHorizontal - 1]]
 	for(var c = 1; c <= columnCount; c++) {
 		var evenOddModifier = c%2==0 ? 0 : -1
@@ -117,6 +122,7 @@ const getRanges = (columnCount, maxHorizontal) => {
 }
 
 const getColumnCount = (tileCount, maxHorizontal) => {
+	if(maxHorizontal == 1) return tileCount
 	var columnCount = 0
 	var i = 0
 	while(i <= tileCount) {

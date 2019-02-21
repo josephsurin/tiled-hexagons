@@ -43,7 +43,7 @@ class Example2 extends Component {
       <Hexagon
         sideLength={80}
         text={count.toString()}
-        textStyle={{ fontFamily: 'Source Sans Pro', fontSize: '68px', fill: '#3399ff', userSelect: 'none' }}
+        textStyle={{ fontFamily: 'Source Sans Pro', fontSize: '68px', fill: '#7cebff' }}
         onClick={() => {
             this.setState({ count: this.state.count + 1 })
         }}
@@ -58,8 +58,7 @@ const code2 =
 `const textStyle = {
   fontFamily: 'Source Sans Pro',
   fontSize: '68px',
-  fill: '#3399ff',
-  userSelect: 'none'
+  fill: '#7cebff'
 }
 
 class Example2 extends Component {
@@ -80,7 +79,7 @@ class Example2 extends Component {
       <Hexagon
         sideLength={80}
         text={count.toString()}
-        textStyle={}
+        textStyle={textStyle}
         onClick={this.updateCounter.bind(this)}
       />
     )
@@ -89,11 +88,112 @@ class Example2 extends Component {
 //#endregion
 
 //#region example3
+const title3 = 'Example #3 - basic tesselation'
 
+const example3 = <TiledHexagons
+  tileSideLengths={60}
+  tileGap={4}
+  tileBorderRadii={9}
+  maxHorizontal={3}
+  tileTextStyles={{ fontFamily: 'Source Sans Pro', fontSize: '68px', fill: '#7cebff' }}
+  tiles={[
+    { text: 'あ',
+      textStyle: {
+        fontFamily: 'M1Plus'
+        }  
+    },
+    { text: 'B',
+      textStyle: {
+        fill: 'white'
+      },
+      fill: '#7cebff',
+      shadow: '#64c5d6'
+    },
+    { img: reactLogo },
+    { text: 'angry',
+      textStyle: {
+        fontFamily: 'Font Awesome Solid'
+      }
+    },
+    { text: 'E',
+      onClick: () => console.log('clicked!')
+    },
+    { text: 'F' },
+    { text: 'G' }
+  ]} />
+
+const code3 = 
+`<TiledHexagons
+  tileSideLengths={60}
+  tileGap={4}
+  tileBorderRadii={9}
+  maxHorizontal={3}
+  tileTextStyles={{
+    fontFamily: 'Source Sans Pro',
+    fontSize: '68px',
+    fill: '#7cebff'
+  }}
+  tiles={[
+    { text: 'あ',
+      textStyle: {
+        fontFamily: 'M1Plus'
+      }
+    },
+    { text: 'B',
+      textStyle: {
+        fill: 'white'
+      },
+      fill: '#7cebff',
+      shadow: '#64c5d6'
+    },
+    { text: 'angry',
+      textStyle: {
+        fontFamily: 'Font Awesome Solid'
+      }
+    },
+    { text: 'E',
+      onClick: () => console.log('clicked!')
+    },
+    { text: 'F' },
+    { text: 'G' }
+  ]}
+/>`
+//#endregion
+
+//#region example4
+const title4 = 'Example #4 - socials'
+
+const example4 = <TiledHexagons
+  maxHorizontal={1}
+  tileSideLengths={60}
+  tileTextStyles={{
+    fontFamily: 'Font Awesome Brands',
+    fontSize: '58px',
+    fill: 'white'
+  }}
+  tileGap={4}
+  tileBorderRadii={9}
+  tiles={[
+    {
+      text: 'facebook-f',
+      fill: '#4267b2',
+      shadow: '#1a2947'
+    },
+    {
+      text: 'twitter',
+      fill: '#1dcaff',
+      shadow: '#0084b4'
+    }
+  ]}
+  />
+
+const code4 = `hi`
 
 //#endregion
 
 export default [
   { title: title1, example: example1, code: code1 },
-  { title: title2, example: example2, code: code2 }
+  { title: title2, example: example2, code: code2 },
+  { title: title3, example: example3, code: code3 },
+  { title: title4, example: example4, code: code4 }
 ]

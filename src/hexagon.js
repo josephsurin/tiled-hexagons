@@ -46,7 +46,7 @@ export default class Hexagon extends Component {
 		}
 	}
 	render() {
-		let { sideLength, borderRadius, elevation, img, text, textStyle, href, target,	onClick } = this.props
+		let { sideLength, borderRadius, elevation, img, text, textStyle, href, target, onClick } = this.props
 		let { thHexagonStyle } = this.state
 
 		let width = Math.sqrt(3) * sideLength

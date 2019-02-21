@@ -1,12 +1,5 @@
 @import 'fonts'
-$white: #fff
-$dark-grey: #455b64
-$grey: #2f2f32
-$black: #1a1a1e
-$light-blue: #7cebff
-$blue: #64c5d6
-$dark-blue: darken($light-blue, 50%)
-$light-grey: #dadada
+@import 'vars'
 	
 body, html
 	margin: 0
@@ -72,10 +65,21 @@ p code, pre code
 			display: grid
 			grid-template-columns: auto auto
 			align-items: center
+			+break-medium
+				grid-template-columns: 100%
+				grid-template-rows: auto auto
+				justify-items: center
+				.example-content
+					padding: 0
+					margin: 0
 
 
 
 /* fixes for examples stylings */
 .example-content-2
 	margin-left: -40px
+	padding: 0 40px
+
+.example-content-3
+	margin-left: -80px
 	padding: 0 40px
