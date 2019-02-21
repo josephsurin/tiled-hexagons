@@ -161,7 +161,7 @@ const code3 =
 //#endregion
 
 //#region example4
-const title4 = 'Example #4 - socials'
+const title4 = 'Example #4 - stacked socials'
 
 const example4 = <TiledHexagons
   maxHorizontal={1}
@@ -171,23 +171,63 @@ const example4 = <TiledHexagons
     fontSize: '58px',
     fill: 'white'
   }}
-  tileGap={4}
+  tileGap={0}
   tileBorderRadii={9}
   tiles={[
     {
       text: 'facebook-f',
       fill: '#4267b2',
-      shadow: '#1a2947'
+      shadow: '#1a2947',
+      href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://github.com/josephsurin/tiled-hexagons')}`
+    },
+    {
+      text: 'github',
+      fill: '#282828',
+      shadow: '#1a1a1a',
+      href: 'https://github.com/josephsurin/tiled-hexagons'
     },
     {
       text: 'twitter',
       fill: '#1dcaff',
-      shadow: '#0084b4'
+      shadow: '#0084b4',
+      href: `https://twitter.com/intent/tweet?url=${encodeURIComponent('https://github.com/josephsurin/tiled-hexagons')}`
     }
   ]}
   />
 
-const code4 = `hi`
+const code4 = `
+const shareURL = encodeURIComponent('https://github.com/josephsurin/tiled-hexagons')
+<TiledHexagons
+  maxHorizontal={1}
+  tileSideLengths={60}
+  tileTextStyles={{
+    fontFamily: 'Font Awesome Brands',
+    fontSize: '58px',
+    fill: 'white'
+  }}
+  tileGap={0}
+  tileBorderRadii={9}
+  tiles={[
+    {
+      text: 'facebook-f',
+      fill: '#4267b2',
+      shadow: '#1a2947',
+      href: \`https://www.facebook.com/sharer/sharer.php?u=\${shareURL}}\`
+    },
+    {
+      text: 'github',
+      fill: '#282828',
+      shadow: '#1a1a1a',
+      href: 'https://github.com/josephsurin/tiled-hexagons'
+    },
+    {
+      text: 'twitter',
+      fill: '#1dcaff',
+      shadow: '#0084b4',
+      href: \`https://twitter.com/intent/tweet?url=\${shareURL}}\`
+    }
+  ]}
+  />`
 
 //#endregion
 

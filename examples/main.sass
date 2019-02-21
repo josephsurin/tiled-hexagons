@@ -14,12 +14,6 @@ p code, pre code
 
 .codeblock
 	position: relative
-	padding: 24px !important
-	border-radius: 10px
-	background-color: darken($grey, 2%)
-	font-size: 15px
-	box-shadow: 1px 1px 15px 1px transparentize($black, 0.7)
-	margin: 24px -8px
 	code
 		background-color: transparent
 
@@ -72,6 +66,16 @@ p code, pre code
 				.example-content
 					padding: 0
 					margin: 0
+			.example-code
+				background-color: darken($grey, 2%)
+				box-shadow: 1px 1px 15px 1px transparentize($black, 0.7)
+				padding: 0 24px !important
+				border-radius: 10px
+				font-size: 15px
+				margin: 24px -8px
+				+break-medium
+					width: 95%
+					overflow-x: auto
 
 
 
@@ -82,4 +86,8 @@ p code, pre code
 
 .example-content-3
 	margin-left: -80px
+	padding: 0 40px
+
+.example-content-4
+	margin-left: -160px
 	padding: 0 40px
