@@ -53,14 +53,15 @@ export default class Hexagon extends Component {
 		let width = Math.sqrt(3) * sideLength
 		let height = 2 * sideLength + elevation
 
-		let fontSizeOffset = textStyle.fontSize ? 0.4 * parseInt(textStyle.fontSize) : 0
+		let fontSizeOffset = textStyle.fontSize ? 0.3 * parseInt(textStyle.fontSize) : 0
+		console.log(fontSizeOffset)
 
 		const hexagon = (
 			<React.Fragment>
 				<path fill={fill} d={generateHexSVG(sideLength, borderRadius)} />
 				<image href={img} width={0.7 * width} height={0.7 * height} x={0.15 * width} y={0.12 * height} />
-				<text y={sideLength + fontSizeOffset} fill="#bbb" strokeWidth="0" style={textStyle}>
-					<tspan x={width/2} alignmentBaseline="middle" textAnchor="middle">
+				<text fill="#bbb" strokeWidth="0" style={textStyle}>
+					<tspan x={width/2} y={height/2 + fontSizeOffset} textAnchor="middle">
 						{text}
 					</tspan>
 				</text>
@@ -88,7 +89,7 @@ export default class Hexagon extends Component {
 
 Hexagon.defaultProps = {
 	sideLength: 100,
-	borderRadius: 16,
+	borderRadius: 12,
 	fill: 'white',
 	stroke: '#bbb',
 	strokeWidth: 0,
