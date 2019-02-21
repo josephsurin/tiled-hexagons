@@ -1,0 +1,317 @@
+/**
+ * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/chriskempson/tomorrow-theme
+ * @author Rose Pritchard
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #ccc;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; }
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto; }
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #2d2d2d; }
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal; }
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #999; }
+
+.token.punctuation {
+  color: #ccc; }
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+  color: #e2777a; }
+
+.token.function-name {
+  color: #6196cc; }
+
+.token.boolean,
+.token.number,
+.token.function {
+  color: #f08d49; }
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+  color: #f8c555; }
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+  color: #cc99cd; }
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+  color: #7ec699; }
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #67cdcc; }
+
+.token.important,
+.token.bold {
+  font-weight: bold; }
+
+.token.italic {
+  font-style: italic; }
+
+.token.entity {
+  cursor: help; }
+
+.token.inserted {
+  color: green; }
+@font-face {
+  font-family: "Lato";
+  src: url(./assets/Lato-LightItalic.woff2);
+  font-weight: 300;
+  font-style: italic; }
+
+@font-face {
+  font-family: "Lato";
+  src: url(./assets/Lato-Regular.woff2);
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Material Icons";
+  src: url(./assets/Material-Icons.woff2);
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url(./assets/SourceSansPro-Bold.woff2);
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url(./assets/SourceSansPro-Black.woff2);
+  font-weight: 900;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Font Awesome Brands";
+  src: url(./assets/Font-Awesome-5-Brands-Regular-400.otf);
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Font Awesome Solid";
+  src: url(./assets/Font-Awesome-5-Free-Solid-900.otf);
+  font-weight: 900;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Merriweather";
+  src: url(./assets/Merriweather-Light.ttf);
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Merriweather";
+  src: url(./assets/Merriweather-lightItalic.ttf);
+  font-weight: 300;
+  font-style: italic; }
+
+@font-face {
+  font-family: "M1Plus";
+  src: url(./assets/mplus-1-black.ttf);
+  font-weight: 900;
+  font-style: normal; }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased; }
+
+.fa-brands {
+  font-family: 'Font Awesome Brands';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased; }
+
+.fa-solid {
+  font-family: 'Font Awesome Solid';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased; }
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #2f2f32; }
+
+.codeblock {
+  background-color: #2a2a2d;
+  box-shadow: 1px 1px 15px 1px rgba(26, 26, 30, 0.3);
+  padding: 8px 24px !important;
+  border-radius: 10px;
+  font-size: 15px;
+  margin: 24px -8px; }
+
+.app-container {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.4rem;
+  color: #bbbbbb;
+  font-family: 'Lato';
+  font-size: 16px; }
+  .app-container h1, .app-container h2 {
+    font-family: 'Source Sans Pro';
+    font-weight: 900; }
+  .app-container h1 {
+    font-size: 48px; }
+  .app-container a {
+    outline: none;
+    color: #7cebff; }
+  .app-container .github-btn {
+    position: fixed;
+    right: 12px;
+    top: 12px; }
+  .app-container .launching-wrapper {
+    height: 100vh; }
+    .app-container .launching-wrapper .launching {
+      max-width: 600px;
+      position: absolute;
+      margin-top: 120px; }
+      .app-container .launching-wrapper .launching .title {
+        display: grid;
+        grid-template-columns: 140px auto;
+        align-items: center; }
+        .app-container .launching-wrapper .launching .title .title-text {
+          margin-left: 30px;
+          font-family: 'Source Sans Pro';
+          font-weight: 900;
+          color: #dadada;
+          font-size: 48px; }
+          .app-container .launching-wrapper .launching .title .title-text .react-title {
+            color: #61dafb; }
+      .app-container .launching-wrapper .launching .about {
+        margin-top: 24px;
+        line-height: 30px; }
+  .app-container .example-wrapper .example-body {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center; }
+    @media (max-width: 768px) {
+      .app-container .example-wrapper .example-body {
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+        justify-items: center; }
+        .app-container .example-wrapper .example-body .example-content {
+          padding: 0;
+          margin: 0; } }
+    .app-container .example-wrapper .example-body .example-code {
+      background-color: #2a2a2d;
+      box-shadow: 1px 1px 15px 1px rgba(26, 26, 30, 0.3);
+      padding: 0 24px !important;
+      border-radius: 10px;
+      font-size: 15px;
+      margin: 24px -8px; }
+      @media (max-width: 768px) {
+        .app-container .example-wrapper .example-body .example-code {
+          width: 95%;
+          overflow-x: auto; } }
+  .app-container .more {
+    margin-top: 100px; }
+
+/* fixes for examples stylings */
+.example-content-2 {
+  margin-left: -40px;
+  padding: 0 40px; }
+
+.example-content-3 {
+  margin-left: -80px;
+  padding: 0 40px; }
+
+.example-content-4 {
+  margin-left: -160px;
+  padding: 0 40px; }
+
+.example-body-5 {
+  grid-template-columns: 100% !important;
+  grid-template-rows: 250px auto !important;
+  justify-items: center; }
+  .example-body-5 .example-content {
+    align-self: baseline; }
+  .example-body-5 .example-code {
+    overflow-x: auto; }
+
+.example-content-6 {
+  margin-left: -280px;
+  padding: 0 40px; }
