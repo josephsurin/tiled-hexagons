@@ -101,26 +101,8 @@ pre[class*="language-"] {
   color: green; }
 @font-face {
   font-family: "Lato";
-  src: url(./assets/Lato-LightItalic.woff2);
-  font-weight: 300;
-  font-style: italic; }
-
-@font-face {
-  font-family: "Lato";
   src: url(./assets/Lato-Regular.woff2);
   font-weight: 400;
-  font-style: normal; }
-
-@font-face {
-  font-family: "Material Icons";
-  src: url(./assets/Material-Icons.woff2);
-  font-weight: 400;
-  font-style: normal; }
-
-@font-face {
-  font-family: "Source Sans Pro";
-  src: url(./assets/SourceSansPro-Bold.woff2);
-  font-weight: 700;
   font-style: normal; }
 
 @font-face {
@@ -142,73 +124,10 @@ pre[class*="language-"] {
   font-style: normal; }
 
 @font-face {
-  font-family: "Merriweather";
-  src: url(./assets/Merriweather-Light.ttf);
-  font-weight: 300;
-  font-style: normal; }
-
-@font-face {
-  font-family: "Merriweather";
-  src: url(./assets/Merriweather-lightItalic.ttf);
-  font-weight: 300;
-  font-style: italic; }
-
-@font-face {
   font-family: "M1Plus";
   src: url(./assets/mplus-1-black.ttf);
   font-weight: 900;
   font-style: normal; }
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: 'liga';
-  font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased; }
-
-.fa-brands {
-  font-family: 'Font Awesome Brands';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: 'liga';
-  font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased; }
-
-.fa-solid {
-  font-family: 'Font Awesome Solid';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: 'liga';
-  font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased; }
 
 body, html {
   margin: 0;

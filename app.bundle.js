@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./build/generateHexSVG.js":
-/*!*********************************!*\
-  !*** ./build/generateHexSVG.js ***!
-  \*********************************/
+/***/ "./dist/generateHexSVG.js":
+/*!********************************!*\
+  !*** ./dist/generateHexSVG.js ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -246,10 +246,10 @@ function generateHexSVG(sideLength, borderRadius) {
 
 /***/ }),
 
-/***/ "./build/hexagon.js":
-/*!**************************!*\
-  !*** ./build/hexagon.js ***!
-  \**************************/
+/***/ "./dist/hexagon.js":
+/*!*************************!*\
+  !*** ./dist/hexagon.js ***!
+  \*************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -267,7 +267,7 @@ var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_mo
 
 var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
 
-var _generateHexSVG = __webpack_require__(/*! ./generateHexSVG */ "./build/generateHexSVG.js");
+var _generateHexSVG = __webpack_require__(/*! ./generateHexSVG */ "./dist/generateHexSVG.js");
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -559,19 +559,19 @@ Hexagon.propTypes = {
 
 /***/ }),
 
-/***/ "./build/index.js":
-/*!************************!*\
-  !*** ./build/index.js ***!
-  \************************/
+/***/ "./dist/index.js":
+/*!***********************!*\
+  !*** ./dist/index.js ***!
+  \***********************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _hexagon = _interopRequireDefault(__webpack_require__(/*! ./hexagon */ "./build/hexagon.js"));
+var _hexagon = _interopRequireDefault(__webpack_require__(/*! ./hexagon */ "./dist/hexagon.js"));
 
-var _tiledHexagons = _interopRequireDefault(__webpack_require__(/*! ./tiled-hexagons */ "./build/tiled-hexagons.js"));
+var _tiledHexagons = _interopRequireDefault(__webpack_require__(/*! ./tiled-hexagons */ "./dist/tiled-hexagons.js"));
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -586,10 +586,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./build/tiled-hexagons.js":
-/*!*********************************!*\
-  !*** ./build/tiled-hexagons.js ***!
-  \*********************************/
+/***/ "./dist/tiled-hexagons.js":
+/*!********************************!*\
+  !*** ./dist/tiled-hexagons.js ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -609,7 +609,7 @@ var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ ".
 
 var _assignDeep = _interopRequireDefault(__webpack_require__(/*! assign-deep */ "./node_modules/assign-deep/index.js"));
 
-var _hexagon = _interopRequireDefault(__webpack_require__(/*! ./hexagon */ "./build/hexagon.js"));
+var _hexagon = _interopRequireDefault(__webpack_require__(/*! ./hexagon */ "./dist/hexagon.js"));
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -923,8 +923,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prismjs_themes_prism_tomorrow_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prismjs_themes_prism_tomorrow_css__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var react_scroll__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-scroll */ "./node_modules/react-scroll/modules/index.js");
 /* harmony import */ var react_scroll__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_scroll__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _build__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../build */ "./build/index.js");
-/* harmony import */ var _build__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_build__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _dist__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../dist */ "./dist/index.js");
+/* harmony import */ var _dist__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_dist__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _assets_react_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./assets/react.svg */ "./examples/assets/react.svg");
 /* harmony import */ var _assets_react_svg__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_assets_react_svg__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _examples__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./examples */ "./examples/examples.js");
@@ -947,7 +947,7 @@ var App = function App() {
     className: "app-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "github-btn"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_build__WEBPACK_IMPORTED_MODULE_8__["TiledHexagons"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dist__WEBPACK_IMPORTED_MODULE_8__["TiledHexagons"], {
     maxHorizontal: 1,
     tileSideLengths: 30,
     tileBorderRadii: 6,
@@ -972,7 +972,7 @@ var App = function App() {
     className: "launching"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "title"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_build__WEBPACK_IMPORTED_MODULE_8__["Hexagon"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dist__WEBPACK_IMPORTED_MODULE_8__["Hexagon"], {
     img: _assets_react_svg__WEBPACK_IMPORTED_MODULE_9___default.a,
     sideLength: 80,
     borderRadius: 12,
@@ -983,7 +983,7 @@ var App = function App() {
     className: "react-title"
   }, "React"), "Hexagon Buttons")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "about"
-  }, "Tiled Hexagons is a simple React button component set to help your render one or multiple tessellated hexagon buttons.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Take a look at some examples! ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_build__WEBPACK_IMPORTED_MODULE_8__["Hexagon"], {
+  }, "Tiled Hexagons is a simple React button component set to help your render one or multiple tessellated hexagon buttons.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Take a look at some examples! ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dist__WEBPACK_IMPORTED_MODULE_8__["Hexagon"], {
     sideLength: 80,
     borderRadius: 12,
     elevation: 16,
@@ -1049,7 +1049,7 @@ var App = function App() {
     style: {
       margin: '40px 0'
     }
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_build__WEBPACK_IMPORTED_MODULE_8__["TiledHexagons"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dist__WEBPACK_IMPORTED_MODULE_8__["TiledHexagons"], {
     tileSideLengths: 24,
     tileBorderRadii: 4,
     tileElevations: 6,
@@ -1212,8 +1212,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_mongodb_svg__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_assets_mongodb_svg__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _assets_arch_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./assets/arch.svg */ "./examples/assets/arch.svg");
 /* harmony import */ var _assets_arch_svg__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_assets_arch_svg__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _build__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../build */ "./build/index.js");
-/* harmony import */ var _build__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_build__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _dist__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../dist */ "./dist/index.js");
+/* harmony import */ var _dist__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_dist__WEBPACK_IMPORTED_MODULE_10__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1246,7 +1246,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
  //#region example1
 
 var title1 = 'Example #1 - simple button';
-var example1 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_build__WEBPACK_IMPORTED_MODULE_10__["Hexagon"], {
+var example1 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dist__WEBPACK_IMPORTED_MODULE_10__["Hexagon"], {
   img: _assets_react_svg__WEBPACK_IMPORTED_MODULE_2___default.a,
   sideLength: 80,
   borderRadius: 12,
@@ -1282,7 +1282,7 @@ function (_Component) {
       var _this2 = this;
 
       var count = this.state.count;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_build__WEBPACK_IMPORTED_MODULE_10__["Hexagon"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dist__WEBPACK_IMPORTED_MODULE_10__["Hexagon"], {
         sideLength: 80,
         text: count.toString(),
         textStyle: {
@@ -1307,7 +1307,7 @@ var code2 = "const textStyle = {\n  fontFamily: 'Source Sans Pro',\n  fontSize: 
 //#region example3
 
 var title3 = 'Example #3 - basic tesselation';
-var example3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_build__WEBPACK_IMPORTED_MODULE_10__["TiledHexagons"], {
+var example3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dist__WEBPACK_IMPORTED_MODULE_10__["TiledHexagons"], {
   tileSideLengths: 60,
   tileGap: 4,
   tileBorderRadii: 9,
@@ -1351,7 +1351,7 @@ var code3 = "<TiledHexagons\n  tileSideLengths={60}\n  tileGap={4}\n  tileBorder
 //#region example4
 
 var title4 = 'Example #4 - stacked socials';
-var example4 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_build__WEBPACK_IMPORTED_MODULE_10__["TiledHexagons"], {
+var example4 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dist__WEBPACK_IMPORTED_MODULE_10__["TiledHexagons"], {
   maxHorizontal: 1,
   tileSideLengths: 60,
   tileTextStyles: {
@@ -1383,7 +1383,7 @@ var code4 = "\nconst shareURL = encodeURIComponent('https://github.com/josephsur
 
 var title5 = 'Example #5 - awesome technologies';
 var icons = [_assets_nodejs_svg__WEBPACK_IMPORTED_MODULE_1___default.a, _assets_react_svg__WEBPACK_IMPORTED_MODULE_2___default.a, _assets_redux_svg__WEBPACK_IMPORTED_MODULE_3___default.a, _assets_reactivex_svg__WEBPACK_IMPORTED_MODULE_4___default.a, _assets_sass_svg__WEBPACK_IMPORTED_MODULE_5___default.a, _assets_electron_svg__WEBPACK_IMPORTED_MODULE_6___default.a, _assets_graphql_svg__WEBPACK_IMPORTED_MODULE_7___default.a, _assets_mongodb_svg__WEBPACK_IMPORTED_MODULE_8___default.a, _assets_arch_svg__WEBPACK_IMPORTED_MODULE_9___default.a];
-var example5 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_build__WEBPACK_IMPORTED_MODULE_10__["TiledHexagons"], {
+var example5 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dist__WEBPACK_IMPORTED_MODULE_10__["TiledHexagons"], {
   maxHorizontal: 5,
   tileSideLengths: 60,
   tileElevations: 16,
@@ -1442,7 +1442,7 @@ function (_Component2) {
       var _this4 = this;
 
       var colours = this.state.colours;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_build__WEBPACK_IMPORTED_MODULE_10__["TiledHexagons"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dist__WEBPACK_IMPORTED_MODULE_10__["TiledHexagons"], {
         maxHorizontal: 5,
         tileBorderRadii: 0,
         tileGap: 0,
