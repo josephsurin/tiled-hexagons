@@ -52,5 +52,16 @@
   "bugs": {
     "url": "https://github.com/josephsurin/tiled-hexagons/issues"
   },
+  "keywords": [
+    "react",
+    "react-components",
+    "react-button",
+    "button",
+    "buttons",
+    "hexagon",
+    "3d",
+    "tessellation",
+    "tiled"
+  ],
   "license": "MIT"
 }
