@@ -29,7 +29,7 @@ const App = () => {
 						},
 						{
 							text: 'smile-beam',
-							href: 'https://josephsurin.js.org'
+							href: 'https://josephsurin.me'
 						}
 					]} />
 			</div>
@@ -119,7 +119,7 @@ const App = () => {
 						{
 							text: 'JOSEPH',
 							textStyle: { fontFamily: 'Source Sans Pro', fontSize: '9px' },
-							href: 'https://josephsurin.js.org'
+							href: 'https://josephsurin.me'
 						}
 					]} />
 			</center>

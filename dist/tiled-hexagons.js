@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -13,9 +13,11 @@ var _assignDeep = _interopRequireDefault(require("assign-deep"));
 
 var _hexagon = _interopRequireDefault(require("./hexagon"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -68,7 +70,7 @@ function (_Component) {
       var fullWidth = XConst * (maxHorizontal == 1 ? 1.5 : Math.min(tileCount, maxHorizontal));
       var fullHeight = singleTileHeight + tileGap + (columnCount - 1) * YConst;
       var ranges = getRanges(columnCount, maxHorizontal);
-      return _react.default.createElement("svg", {
+      return _react["default"].createElement("svg", {
         width: fullWidth,
         height: fullHeight
       }, tiles.map(function (_ref, i) {
@@ -88,14 +90,14 @@ function (_Component) {
             YMultiplier = _getMultipliers.YMultiplier; //deep merge & clone
 
 
-        var mergedStyles = (0, _assignDeep.default)(mergedStyles, JSON.parse(JSON.stringify(tileStyles)), styles);
-        return _react.default.createElement("svg", {
+        var mergedStyles = (0, _assignDeep["default"])(mergedStyles, JSON.parse(JSON.stringify(tileStyles)), styles);
+        return _react["default"].createElement("svg", {
           key: i,
           x: XMultiplier * XConst,
           y: YMultiplier * YConst,
           width: singleTileWidth,
           height: singleTileHeight
-        }, _react.default.createElement(_hexagon.default, {
+        }, _react["default"].createElement(_hexagon["default"], {
           sideLength: tileSideLengths,
           borderRadius: tileBorderRadii,
           elevation: tileElevations,
@@ -118,13 +120,13 @@ function (_Component) {
   return TiledHexagons;
 }(_react.Component);
 
-exports.default = TiledHexagons;
+exports["default"] = TiledHexagons;
 TiledHexagons.defaultProps = {
   tiles: [],
-  tileSideLengths: _hexagon.default.defaultProps.width,
-  tileBorderRadii: _hexagon.default.defaultProps.borderRadius,
-  tileElevations: _hexagon.default.defaultProps.elevation,
-  tileStrokeWidths: _hexagon.default.defaultProps.strokeWidth,
+  tileSideLengths: _hexagon["default"].defaultProps.width,
+  tileBorderRadii: _hexagon["default"].defaultProps.borderRadius,
+  tileElevations: _hexagon["default"].defaultProps.elevation,
+  tileStrokeWidths: _hexagon["default"].defaultProps.strokeWidth,
   tileGap: 4,
   tileStyles: {
     normal: {},
@@ -135,34 +137,34 @@ TiledHexagons.defaultProps = {
   maxHorizontal: 5
 };
 TiledHexagons.propTypes = {
-  tiles: _propTypes.default.arrayOf(_propTypes.default.shape({
-    fill: _propTypes.default.string,
-    stroke: _propTypes.default.string,
-    shadow: _propTypes.default.string,
-    img: _propTypes.default.string,
-    text: _propTypes.default.string,
-    textStyle: _propTypes.default.object,
-    styles: _propTypes.default.shape({
-      normal: _propTypes.default.object,
-      hover: _propTypes.default.object,
-      active: _propTypes.default.object
+  tiles: _propTypes["default"].arrayOf(_propTypes["default"].shape({
+    fill: _propTypes["default"].string,
+    stroke: _propTypes["default"].string,
+    shadow: _propTypes["default"].string,
+    img: _propTypes["default"].string,
+    text: _propTypes["default"].string,
+    textStyle: _propTypes["default"].object,
+    styles: _propTypes["default"].shape({
+      normal: _propTypes["default"].object,
+      hover: _propTypes["default"].object,
+      active: _propTypes["default"].object
     }),
-    href: _propTypes.default.string,
-    target: _propTypes.default.string,
-    onClick: _propTypes.default.func
+    href: _propTypes["default"].string,
+    target: _propTypes["default"].string,
+    onClick: _propTypes["default"].func
   })),
-  tileSideLengths: _propTypes.default.number,
-  tileBorderRadii: _propTypes.default.number,
-  tileElevations: _propTypes.default.number,
-  tileStrokeWidths: _propTypes.default.number,
-  tileGap: _propTypes.default.number,
-  tileStyles: _propTypes.default.shape({
-    normal: _propTypes.default.object,
-    hover: _propTypes.default.object,
-    active: _propTypes.default.object
+  tileSideLengths: _propTypes["default"].number,
+  tileBorderRadii: _propTypes["default"].number,
+  tileElevations: _propTypes["default"].number,
+  tileStrokeWidths: _propTypes["default"].number,
+  tileGap: _propTypes["default"].number,
+  tileStyles: _propTypes["default"].shape({
+    normal: _propTypes["default"].object,
+    hover: _propTypes["default"].object,
+    active: _propTypes["default"].object
   }),
-  tileTextStyles: _propTypes.default.object,
-  maxHorizontal: _propTypes.default.number
+  tileTextStyles: _propTypes["default"].object,
+  maxHorizontal: _propTypes["default"].number
 };
 
 var getRanges = function getRanges(columnCount, maxHorizontal) {
