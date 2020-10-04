@@ -7,9 +7,9 @@
     "assign-deep": "^1.0.0"
   },
   "peerDependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "prop-types": "^15.7.2"
+    "react-dom": "^16.8.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
